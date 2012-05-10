@@ -1,0 +1,1 @@
+var Services = new Meteor.Collection("services");
