@@ -3,16 +3,15 @@
 </head>
 
 <body>
-  <h1>Services</h1>
   {{> services}}
 </body>
 
 <template name="services">
-  <div class="services">
+  <ul class="services">	
     {{#each services}}
-      <div class="service serviceState{{ hardState}}">
+      <li class="service serviceState{{ hardState}}">
         {{ service}}
-      </div>
+      </li>
     {{/each}}
-  </div>
+  </ul>
 </template>

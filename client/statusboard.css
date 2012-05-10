@@ -1,5 +1,24 @@
 /* CSS declarations go here */
 
+body {
+	background-color: #000;
+	color: #EEE;
+	font-family: ubuntu, sans-serif;
+}
+
 .serviceStateOK {
-	background-color: #0F0;
+	color: #0A0;
+}
+
+.service {
+	background-color: #222;
+}
+
+ul.services {
+	display: inline-block;
+}
+
+.services li {
+	display: inline-block;
+	text-transform: uppercase;
 }
