@@ -4,7 +4,7 @@ var statemap = [];
 statemap[0] = "OK";
 statemap[1] = "WARNING";
 statemap[2] = "CRITICAL";
-statemap[3] = "UNKNOWN";
+statemap[3] = "UNKNOWN"; 
 
 function getServices() {
   Meteor.http.call('GET', SERVICES_URL, function (error, result) {
@@ -30,6 +30,14 @@ function getServices() {
     });
   });
 } 
+
+Meteor.publish("status-soft", function() {
+	return Services.group({
+		key: {'currState': true},
+		initial: {sum: 0},
+		reduce: function(doc, prev) { prev.sum += 1}
+	});
+})
 
 Meteor.startup(function () {
   Meteor.setInterval(getServices,10000);
