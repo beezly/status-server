@@ -31,14 +31,6 @@ function getServices() {
   });
 } 
 
-Meteor.publish("status-soft", function() {
-	return Services.group({
-		key: {'currState': true},
-		initial: {sum: 0},
-		reduce: function(doc, prev) { prev.sum += 1}
-	});
-})
-
 Meteor.startup(function () {
   Meteor.setInterval(getServices,10000);
 });
